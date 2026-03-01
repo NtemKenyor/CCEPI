@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CCEPI | Community Empowerment & Peace Initiative</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --forest: #0d3526;
+  --forest-mid: #175c40;
+  --forest-light: #2a8a5e;
+  --sage: #4caf82;
+  --gold: #e8a020;
+  --gold-light: #f5c842;
+  --cream: #faf7f0;
+  --warm-white: #fff9f0;
+  --text-dark: #1a1a1a;
+  --text-mid: #444;
+  --text-light: #888;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  background: var(--forest);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Animated musical wave background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.wave-line {
+  position: absolute;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(76,175,130,0.3) 30%, rgba(232,160,32,0.5) 50%, rgba(76,175,130,0.3) 70%, transparent 100%);
+  animation: wave-move 6s ease-in-out infinite;
+}
+.wave-line:nth-child(1)  { top: 15%; animation-delay: 0s;    animation-duration: 7s; }
+.wave-line:nth-child(2)  { top: 30%; animation-delay: 0.8s;  animation-duration: 6s; opacity: .5; }
+.wave-line:nth-child(3)  { top: 45%; animation-delay: 1.6s;  animation-duration: 8s; }
+.wave-line:nth-child(4)  { top: 60%; animation-delay: 0.4s;  animation-duration: 5s; opacity: .4; }
+.wave-line:nth-child(5)  { top: 75%; animation-delay: 1.2s;  animation-duration: 7s; }
+.wave-line:nth-child(6)  { top: 88%; animation-delay: 2s;    animation-duration: 6s; opacity: .3; }
+
+@keyframes wave-move {
+  0%   { transform: translateX(-50%) scaleY(1); }
+  50%  { transform: translateX(-30%) scaleY(3); }
+  100% { transform: translateX(-50%) scaleY(1); }
+}
+
+/* Floating music notes */
+.note {
+  position: absolute;
+  font-size: 1.4rem;
+  color: rgba(232,160,32,0.25);
+  animation: float-note 12s ease-in-out infinite;
+  user-select: none;
+}
+.note:nth-child(1)  { left: 5%;  top: 20%; animation-delay: 0s;   font-size: 2rem; }
+.note:nth-child(2)  { left: 88%; top: 15%; animation-delay: 2s; }
+.note:nth-child(3)  { left: 15%; top: 70%; animation-delay: 4s;   font-size: 1rem; }
+.note:nth-child(4)  { left: 75%; top: 60%; animation-delay: 1s;   font-size: 2.5rem; color: rgba(76,175,130,0.2); }
+.note:nth-child(5)  { left: 50%; top: 10%; animation-delay: 3s;   font-size: 1.2rem; }
+.note:nth-child(6)  { left: 92%; top: 80%; animation-delay: 5s; }
+.note:nth-child(7)  { left: 32%; top: 85%; animation-delay: 2.5s; font-size: 1.8rem; color: rgba(232,160,32,0.15); }
+
+@keyframes float-note {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+  50%       { transform: translateY(-30px) rotate(10deg); opacity: 1; }
+}
+
+/* NAV */
+.nav {
+  position: relative;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 48px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo-mark {
+  width: 42px;
+  height: 42px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.nav-logo-text {
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover { color: var(--gold-light); }
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 24px 80px;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(232,160,32,0.15);
+  border: 1px solid rgba(232,160,32,0.4);
+  color: var(--gold-light);
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  animation: fade-up 0.8s ease both;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  color: #fff;
+  line-height: 1.1;
+  max-width: 900px;
+  margin-bottom: 28px;
+  animation: fade-up 0.8s 0.15s ease both;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+
+.hero-sub {
+  color: rgba(255,255,255,0.65);
+  font-size: 1.1rem;
+  max-width: 580px;
+  line-height: 1.8;
+  margin-bottom: 48px;
+  animation: fade-up 0.8s 0.3s ease both;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fade-up 0.8s 0.45s ease both;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--forest);
+  padding: 14px 36px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(232,160,32,0.4);
+}
+
+.btn-secondary {
+  border: 2px solid rgba(255,255,255,0.3);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.25s;
+  backdrop-filter: blur(4px);
+}
+
+.btn-secondary:hover {
+  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.1);
+}
+
+/* Hero stats bar */
+.hero-stats {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  padding: 0 24px 0;
+  margin-top: -30px;
+}
+
+.stats-bar {
+  background: var(--cream);
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  gap: 0;
+  overflow: hidden;
+  box-shadow: 0 -10px 40px rgba(0,0,0,0.15);
+  max-width: 800px;
+  width: 100%;
+}
+
+.stat-item {
+  flex: 1;
+  padding: 28px 24px;
+  text-align: center;
+  border-right: 1px solid #e5e0d5;
+}
+
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--forest);
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============ SECTIONS ============ */
+
+.section {
+  padding: 100px 24px;
+}
+
+.section-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--forest-light);
+  margin-bottom: 16px;
+}
+
+.section-tag::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.2;
+  color: var(--forest);
+  margin-bottom: 20px;
+}
+
+.section-lead {
+  color: var(--text-mid);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  max-width: 640px;
+}
+
+/* ============ ABOUT ============ */
+.about-section { background: var(--cream); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+}
+
+.about-card-stack {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 400px;
+}
+
+.about-card-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--forest);
+  border-radius: 24px;
+  transform: rotate(4deg);
+}
+
+.about-card-mid {
+  position: absolute;
+  inset: 8px;
+  background: var(--forest-mid);
+  border-radius: 20px;
+  transform: rotate(-2deg);
+}
+
+.about-card-main {
+  position: absolute;
+  inset: 16px;
+  background: linear-gradient(135deg, var(--forest-light), var(--sage));
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  text-align: center;
+  padding: 30px;
+}
+
+.about-card-main .big-emoji {
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.about-card-main h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+}
+
+.about-card-main p {
+  opacity: 0.85;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.about-badge {
+  position: absolute;
+  bottom: -16px;
+  right: -16px;
+  background: var(--gold);
+  color: var(--forest);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 0.75rem;
+  text-align: center;
+  line-height: 1.2;
+  z-index: 10;
+  box-shadow: 0 8px 24px rgba(232,160,32,0.4);
+}
+
+.about-badge span { font-size: 1.5rem; font-family: 'Playfair Display', serif; }
+
+.values-list {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 20px;
+  background: #fff;
+  border-radius: 14px;
+  border-left: 4px solid var(--gold);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  transition: transform 0.2s;
+}
+
+.value-item:hover { transform: translateX(4px); }
+
+.value-icon { font-size: 1.4rem; flex-shrink: 0; }
+.value-text h4 { font-size: 0.95rem; font-weight: 700; color: var(--forest); margin-bottom: 3px; }
+.value-text p  { font-size: 0.85rem; color: var(--text-mid); line-height: 1.5; }
+
+/* ============ PROGRAMS ============ */
+.programs-section { background: var(--warm-white); }
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.program-card {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.13);
+}
+
+.program-card-header {
+  padding: 40px 36px 32px;
+  position: relative;
+}
+
+.pc-music { background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%); }
+.pc-peace { background: linear-gradient(135deg, #1a3a5c 0%, #2a5998 100%); }
+
+.program-tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.95);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.program-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.program-card-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.program-card-header p {
+  color: rgba(255,255,255,0.75);
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+
+/* Decorative circle */
+.program-card-header::after {
+  content: '';
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  pointer-events: none;
+}
+
+.program-card-body {
+  background: #fff;
+  padding: 32px 36px;
+}
+
+.program-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.program-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+
+.feature-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sage);
+  flex-shrink: 0;
+}
+
+.program-cta {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--forest);
+  text-decoration: none;
+  transition: gap 0.2s;
+}
+
+.program-cta:hover { gap: 14px; color: var(--gold); }
+
+/* ============ IMPACT ============ */
+.impact-section {
+  background: var(--forest);
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.03);
+  pointer-events: none;
+}
+
+.impact-section::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: rgba(76,175,130,0.08);
+  pointer-events: none;
+}
+
+.impact-section .section-title { color: #fff; }
+.impact-section .section-tag   { color: var(--gold-light); }
+.impact-section .section-lead  { color: rgba(255,255,255,0.65); max-width: 560px; }
+
+.impact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.impact-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 32px 28px;
+  backdrop-filter: blur(6px);
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.impact-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(232,160,32,0.4);
+}
+
+.impact-card .i-emoji {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.impact-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.impact-card p {
+  font-size: 0.87rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+}
+
+/* ============ LEADERSHIP ============ */
+.leadership-section { background: var(--cream); }
+
+.ceo-block {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: var(--forest);
+  border-radius: 24px;
+  padding: 40px 48px;
+  margin-bottom: 48px;
+  position: relative;
+  overflow: hidden;
+}
+
+.ceo-block::before {
+  content: '🎵';
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 8rem;
+  opacity: 0.07;
+  user-select: none;
+}
+
+.ceo-avatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
+
+.ceo-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.ceo-info .role-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--forest);
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.ceo-info p {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.board-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: var(--forest);
+  margin-bottom: 24px;
+}
+
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.board-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 22px;
+  border: 1px solid #e8e3da;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: all 0.25s;
+}
+
+.board-card:hover {
+  border-color: var(--sage);
+  box-shadow: 0 8px 24px rgba(42,138,94,0.12);
+  transform: translateY(-2px);
+}
+
+.board-avatar {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--forest-light), var(--sage));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.board-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--forest); }
+.board-card p  { font-size: 0.78rem; color: var(--text-light); margin-top: 2px; }
+
+/* ============ CONTACT ============ */
+.contact-section { background: var(--warm-white); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-top: 48px;
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 24px;
+  background: var(--cream);
+  border-radius: 16px;
+  border: 1px solid #e8e3da;
+}
+
+.contact-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--forest);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.contact-item h4 { font-size: 0.88rem; font-weight: 700; color: var(--forest); margin-bottom: 4px; }
+.contact-item p  { font-size: 0.9rem; color: var(--text-mid); }
+
+.contact-form {
+  background: var(--forest);
+  border-radius: 24px;
+  padding: 40px;
+}
+
+.contact-form h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 28px;
+}
+
+.form-field {
+  margin-bottom: 18px;
+}
+
+.form-field label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-field input,
+.form-field textarea,
+.form-field select {
+  width: 100%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  padding: 12px 16px;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, background 0.2s;
+  outline: none;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: rgba(255,255,255,0.35); }
+
+.form-field input:focus,
+.form-field textarea:focus {
+  border-color: var(--gold);
+  background: rgba(255,255,255,0.15);
+}
+
+.form-field textarea { resize: vertical; min-height: 100px; }
+
+.form-submit {
+  width: 100%;
+  background: var(--gold);
+  color: var(--forest);
+  border: none;
+  padding: 14px 24px;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  margin-top: 8px;
+}
+
+.form-submit:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232,160,32,0.35);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  background: var(--forest);
+  padding: 48px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: '🎶';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20rem;
+  opacity: 0.025;
+  pointer-events: none;
+  user-select: none;
+}
+
+.footer-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.footer-tagline {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.88rem;
+  margin-bottom: 32px;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  list-style: none;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--gold-light); }
+
+.footer-divider {
+  width: 60px;
+  height: 2px;
+  background: var(--gold);
+  border: none;
+  margin: 0 auto 20px;
+}
+
+.footer-copy {
+  color: rgba(255,255,255,0.3);
+  font-size: 0.8rem;
+}
+
+/* ============ SCROLL ANIMATIONS ============ */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger children */
+.reveal-child { transition-delay: calc(var(--i, 0) * 0.1s); }
+
+/* ============ MOBILE ============ */
+@media (max-width: 768px) {
+  .nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+
+  .hero-title { font-size: 2.2rem; }
+
+  .stats-bar { flex-direction: column; }
+  .stat-item { border-right: none; border-bottom: 1px solid #e5e0d5; }
+
+  .about-grid,
+  .programs-grid,
+  .contact-grid { grid-template-columns: 1fr; }
+
+  .about-visual { display: none; }
+
+  .impact-cards,
+  .board-grid { grid-template-columns: 1fr; }
+
+  .ceo-block { flex-direction: column; text-align: center; padding: 32px 24px; }
+}
+
+/* ============ SCROLLBAR ============ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb { background: var(--forest-mid); border-radius: 999px; }
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+    <div class="wave-line"></div>
+
+    <div class="note">♩</div>
+    <div class="note">♪</div>
+    <div class="note">♫</div>
+    <div class="note">🎵</div>
+    <div class="note">♬</div>
+    <div class="note">♩</div>
+    <div class="note">🎶</div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-logo">
+      <div class="nav-logo-mark">🎵</div>
+      <span class="nav-logo-text">CCEPI</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programs</a></li>
+      <li><a href="#impact">Impact</a></li>
+      <li><a href="#leadership">Leadership</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">🌍 Est. 2008 · Nigeria</div>
+    <h1 class="hero-title">
+      Music is the<br>
+      <em>language of peace</em><br>
+      & opportunity
+    </h1>
+    <p class="hero-sub">
+      The Centre for Community Empowerment & Peace Initiative uses participatory music,
+      education, and dialogue to uplift youth and build lasting peace across Nigeria.
+    </p>
+    <div class="hero-ctas">
+      <a href="#programs" class="btn-primary">🎼 Our Programs</a>
+      <a href="#contact" class="btn-secondary">Get Involved →</a>
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-num">16+</span>
+        <span class="stat-label">Years of Service</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">100+</span>
+        <span class="stat-label">Youth Trained</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">2</span>
+        <span class="stat-label">Active Programs</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">∞</span>
+        <span class="stat-label">Community Impact</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section id="about" class="section about-section">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-card-stack">
+          <div class="about-card-bg"></div>
+          <div class="about-card-mid"></div>
+          <div class="about-card-main">
+            <span class="big-emoji">🎶</span>
+            <h3>Music Heals.<br>Music Unites.</h3>
+            <p>For over a decade, we've used music as a bridge between communities and generations.</p>
+          </div>
+          <div class="about-badge"><span>2008</span>Founded</div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <div class="section-tag reveal">About CCEPI</div>
+        <h2 class="section-title reveal">Where creativity meets community</h2>
+        <p class="section-lead reveal">
+          The Centre for Community Empowerment and Peace Initiative (CCEPI) is a grassroots
+          nonprofit based in Nigeria. Since 2008, we have worked at the heart of underserved
+          communities — turning music into a vehicle for hope, healing, and opportunity.
+        </p>
+        <p class="section-lead reveal" style="margin-top:16px;">
+          We believe that a young person with a drum in their hands and a song in their heart
+          is a young person empowered.
+        </p>
+
+        <div class="values-list">
+          <div class="value-item reveal" style="--i:1">
+            <div class="value-icon">🌱</div>
+            <div class="value-text">
+              <h4>Community Ownership</h4>
+              <p>Programs designed <em>with</em> communities, not imposed on them.</p>
+            </div>
+          </div>
+          <div class="value-item reveal" style="--i:2">
+            <div class="value-icon">🕊️</div>
+            <div class="value-text">
+              <h4>Peace & Inclusion</h4>
+              <p>Music as a bridge across cultural, social, and ethnic divides.</p>
+            </div>
+          </div>
+          <div class="value-item reveal" style="--i:3">
+            <div class="value-icon">🚀</div>
+            <div class="value-text">
+              <h4>Youth Empowerment</h4>
+              <p>Skills, leadership, and career pathways for tomorrow's leaders.</p>
+            </div>
+          </div>
+          <div class="value-item reveal" style="--i:4">
+            <div class="value-icon">🤝</div>
+            <div class="value-text">
+              <h4>Integrity & Accountability</h4>
+              <p>Honest, transparent, community-first work — always.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROGRAMS ========== -->
+<section id="programs" class="section programs-section">
+  <div class="section-inner">
+    <div class="section-tag reveal">Our Programs</div>
+    <h2 class="section-title reveal">Transforming lives<br>through music</h2>
+    <p class="section-lead reveal">
+      Two flagship programs, one mission: to place music at the center of youth development
+      and community peacebuilding.
+    </p>
+
+    <div class="programs-grid">
+
+      <!-- Program 1 -->
+      <div class="program-card reveal" style="--i:1">
+        <div class="program-card-header pc-music">
+          <div class="program-tag">🎯 Ongoing Program</div>
+          <span class="program-emoji">🎹</span>
+          <h3>CCEPI Music Fusion</h3>
+          <p>
+            A structured, long-term music education program equipping 100 youth with
+            real instrument skills — weekly, hands-on, and built to last.
+          </p>
+        </div>
+        <div class="program-card-body">
+          <ul class="program-features">
+            <li><div class="feature-dot"></div> Percussion, keyboards, strings & fretted instruments</li>
+            <li><div class="feature-dot"></div> Weekly structured sessions over 6 months</li>
+            <li><div class="feature-dot"></div> Mentorship & peer-to-peer learning</li>
+            <li><div class="feature-dot"></div> Performance & community showcase opportunities</li>
+            <li><div class="feature-dot"></div> Pathways to teaching and music career mobility</li>
+          </ul>
+          <a href="#contact" class="program-cta">Learn More →</a>
+        </div>
+      </div>
+
+      <!-- Program 2 -->
+      <div class="program-card reveal" style="--i:2">
+        <div class="program-card-header pc-peace">
+          <div class="program-tag">🗺️ Mobile Program</div>
+          <span class="program-emoji">🕊️</span>
+          <h3>Harmony for Peace</h3>
+          <p>
+            A one-day mobile musical peace conference using drumming, storytelling, and
+            guided dialogue to promote healing and unity between communities in Yakurr.
+          </p>
+        </div>
+        <div class="program-card-body">
+          <ul class="program-features">
+            <li><div class="feature-dot"></div> Participatory drumming and communal singing</li>
+            <li><div class="feature-dot"></div> Peace dialogue and guided reflection sessions</li>
+            <li><div class="feature-dot"></div> Storytelling and cultural expression</li>
+            <li><div class="feature-dot"></div> Community peace pledge and commitment ceremony</li>
+            <li><div class="feature-dot"></div> Mobile — travels between communities in need</li>
+          </ul>
+          <a href="#contact" class="program-cta">Learn More →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== IMPACT ========== -->
+<section id="impact" class="section impact-section">
+  <div class="section-inner">
+    <div class="section-tag reveal">Our Impact</div>
+    <h2 class="section-title reveal">Real change in<br>real communities</h2>
+    <p class="section-lead reveal">
+      For over 16 years, CCEPI has been a quiet but consistent force for good —
+      from music workshops to digital skills training, always walking beside the communities we serve.
+    </p>
+
+    <div class="impact-cards">
+      <div class="impact-card reveal" style="--i:1">
+        <span class="i-emoji">🥁</span>
+        <h4>Participatory Music Learning</h4>
+        <p>
+          Hundreds of youth introduced to musical instruments through immersive,
+          hands-on sessions that build skill and confidence.
+        </p>
+      </div>
+      <div class="impact-card reveal" style="--i:2">
+        <span class="i-emoji">🌿</span>
+        <h4>Peacebuilding in Action</h4>
+        <p>
+          Community dialogues powered by music have reduced tension and opened
+          new pathways for reconciliation across settlements and villages.
+        </p>
+      </div>
+      <div class="impact-card reveal" style="--i:3">
+        <span class="i-emoji">💻</span>
+        <h4>Python Ugep — Digital Skills</h4>
+        <p>
+          A multi-week software training program that gave young people in Ugep
+          coding skills and a pathway into the technology economy.
+        </p>
+      </div>
+      <div class="impact-card reveal" style="--i:4">
+        <span class="i-emoji">📚</span>
+        <h4>Academic Support</h4>
+        <p>
+          Educational assistance and academic enrichment programs that complement
+          our creative offerings and boost long-term outcomes.
+        </p>
+      </div>
+      <div class="impact-card reveal" style="--i:5">
+        <span class="i-emoji">👩‍🏫</span>
+        <h4>Youth Leadership</h4>
+        <p>
+          Advanced participants mentor their peers, becoming role models and
+          community leaders who carry the mission forward.
+        </p>
+      </div>
+      <div class="impact-card reveal" style="--i:6">
+        <span class="i-emoji">🤝</span>
+        <h4>Community Partnerships</h4>
+        <p>
+          Trusted relationships with local leaders, schools, faith institutions,
+          and cultural groups that amplify our reach and relevance.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LEADERSHIP ========== -->
+<section id="leadership" class="section leadership-section">
+  <div class="section-inner">
+    <div class="section-tag reveal">Leadership</div>
+    <h2 class="section-title reveal">The people behind the mission</h2>
+    <p class="section-lead reveal">
+      CCEPI is governed by a board of community leaders, educators, and public servants
+      united by a shared commitment to empowerment and peace.
+    </p>
+
+    <div class="ceo-block reveal">
+      <div class="ceo-avatar">👤</div>
+      <div class="ceo-info">
+        <div class="role-badge">Chief Executive Officer</div>
+        <h3>Ntem Kenyor Komommo</h3>
+        <p>
+          Founder, community development advocate, and the driving force behind CCEPI's programs.
+          With a passion for music and youth empowerment, Ntem leads with vision, dedication,
+          and deep roots in the communities CCEPI serves.
+        </p>
+      </div>
+    </div>
+
+    <h3 class="board-heading reveal">Board of Directors</h3>
+    <div class="board-grid">
+
+      <div class="board-card reveal" style="--i:1">
+        <div class="board-avatar">👤</div>
+        <div>
+          <h4>Eno Ubi Ofum</h4>
+          <p>Board Member · Community Development</p>
+        </div>
+      </div>
+
+      <div class="board-card reveal" style="--i:2">
+        <div class="board-avatar">👤</div>
+        <div>
+          <h4>Mrs. Oma Cobham Nsa</h4>
+          <p>Board Member · Social Development</p>
+        </div>
+      </div>
+
+      <div class="board-card reveal" style="--i:3">
+        <div class="board-avatar">👤</div>
+        <div>
+          <h4>Elder Otu Ina Ibor, PhD</h4>
+          <p>Board Member · Education & Governance</p>
+        </div>
+      </div>
+
+      <div class="board-card reveal" style="--i:4">
+        <div class="board-avatar">👤</div>
+        <div>
+          <h4>Omini Oden</h4>
+          <p>Board Member · Grassroots Outreach</p>
+        </div>
+      </div>
+
+      <div class="board-card reveal" style="--i:5">
+        <div class="board-avatar">👤</div>
+        <div>
+          <h4>Hon. Bassey Ina Ibor</h4>
+          <p>Board Member · Public Service</p>
+        </div>
+      </div>
+
+      <div class="board-card reveal" style="--i:6">
+        <div class="board-avatar">👤</div>
+        <div>
+          <h4>Etim Mbang Ina</h4>
+          <p>Board Member · Youth Advocacy</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section id="contact" class="section contact-section">
+  <div class="section-inner">
+    <div class="section-tag reveal">Get In Touch</div>
+    <h2 class="section-title reveal">Join us in building<br>peaceful communities</h2>
+
+    <div class="contact-grid">
+      <div class="contact-items">
+        <div class="contact-item reveal" style="--i:1">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h4>Email Us</h4>
+            <p>a1in1@roynek.com or Nkenyor@gmail.com </p>
+          </div>
+        </div>
+        <div class="contact-item reveal" style="--i:2">
+          <div class="contact-icon">📍</div>
+          <div>
+            <h4>Location</h4>
+            <p>Nigeria (Cross River State & beyond)</p>
+          </div>
+        </div>
+        <div class="contact-item reveal" style="--i:3">
+          <div class="contact-icon">🎵</div>
+          <div>
+            <h4>Partner With Us</h4>
+            <p>Foundations, NGOs, schools & community groups welcome.</p>
+          </div>
+        </div>
+        <div class="contact-item reveal" style="--i:4">
+          <div class="contact-icon">🤲</div>
+          <div>
+            <h4>Volunteer</h4>
+            <p>Music facilitators, educators & community organizers needed.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal">
+        <h3>Send us a message</h3>
+        <div class="form-field">
+          <label>Your Name</label>
+          <input type="text" placeholder="Full name">
+        </div>
+        <div class="form-field">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com">
+        </div>
+        <div class="form-field">
+          <label>How can we help?</label>
+          <textarea placeholder="Tell us about your interest in CCEPI — volunteer, partner, or general enquiry…"></textarea>
+        </div>
+        <button class="form-submit" onclick="handleSubmit(this)">Send Message 🎶</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-logo">CCEPI</div>
+  <p class="footer-tagline">Centre for Community Empowerment & Peace Initiative</p>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#impact">Impact</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <hr class="footer-divider">
+  <p class="footer-copy">© 2008–2026 Centre for Community Empowerment and Peace Initiative (CCEPI) · Nigeria · All rights reserved.</p>
+</footer>
+
+<script>
+// ——— Scroll reveal ———
+const reveals = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const delay = (el.style.getPropertyValue('--i') || 0) * 100;
+      setTimeout(() => el.classList.add('visible'), delay);
+      revealObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.12 });
+
+reveals.forEach(el => revealObserver.observe(el));
+
+// ——— Sticky nav background ———
+const nav = document.querySelector('.nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) {
+    nav.style.background = 'rgba(13,53,38,0.97)';
+    nav.style.backdropFilter = 'blur(12px)';
+    nav.style.borderBottom = '1px solid rgba(255,255,255,0.08)';
+  } else {
+    nav.style.background = '';
+    nav.style.backdropFilter = '';
+    nav.style.borderBottom = '';
+  }
+});
+
+nav.style.transition = 'background 0.3s, backdrop-filter 0.3s';
+
+// ——— Contact form ———
+function handleSubmit(btn) {
+    alert("We are currently experiencing a down time on our server. Please send a direct email to Nkenyor@gmail.com");
+//   const original = btn.textContent;
+//   btn.textContent = '✅ Message Sent!';
+//   btn.style.background = '#4caf82';
+//   btn.disabled = true;
+//   setTimeout(() => {
+//     btn.textContent = original;
+//     btn.style.background = '';
+//     btn.disabled = false;
+//   }, 3000);
+}
+
+// ——— Smooth active link highlight ———
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 120) current = sec.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current
+      ? 'var(--gold-light)'
+      : '';
+  });
+});
+</script>
+
+</body>
+</html>

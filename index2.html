@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CCEPI | Community Empowerment & Peace Initiative</title>
+
+<style>
+:root {
+  --primary: #0f3d2e;
+  --secondary: #1f6f54;
+  --accent: #f4b400;
+  --light: #f6f8f7;
+  --dark: #102a23;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: #222;
+  background: #ffffff;
+  line-height: 1.7;
+}
+
+header {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e6e6e6;
+  z-index: 100;
+}
+
+nav .nav-wrap {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--dark);
+  margin-left: 18px;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: var(--secondary);
+}
+
+section {
+  padding: 70px 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 2rem;
+}
+
+.section-title span {
+  color: var(--secondary);
+}
+
+.hero-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 40px;
+  margin-top: -60px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  margin-top: 15px;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+}
+
+.light {
+  background: var(--light);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--secondary);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+footer {
+  background: var(--dark);
+  color: #fff;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 0.9rem;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🎶 Centre for Community Empowerment & Peace Initiative</h1>
+  <p>Empowering Youth • Building Peace • Strengthening Communities</p>
+</header>
+
+<nav>
+  <div class="nav-wrap">
+    <strong>CCEPI</strong>
+    <div>
+      <a href="#about">About</a>
+      <a href="#programs">Programs</a>
+      <a href="#impact">Impact</a>
+      <a href="#leadership">Leadership</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<section class="container">
+  <div class="hero-card fade-in">
+    <h2>🎵 Music as a Tool for Peace & Opportunity</h2>
+    <p>
+      Established in 2008, CCEPI is a nonprofit organization using participatory
+      music, education, and dialogue to empower youth and foster peaceful,
+      inclusive communities across Nigeria.
+    </p>
+  </div>
+</section>
+
+<section id="about" class="light">
+  <div class="container fade-in">
+    <div class="section-title">
+      <h2>🌍 <span>About Us</span></h2>
+    </div>
+    <p>
+      The Centre for Community Empowerment and Peace Initiative (CCEPI) is a
+      grassroots nonprofit dedicated to youth development, peacebuilding,
+      and cultural education.
+    </p>
+    <p>
+      We believe that music is more than art — it is a universal language
+      capable of healing divisions, creating livelihoods, and restoring hope.
+    </p>
+  </div>
+</section>
+
+<section id="programs">
+  <div class="container">
+    <div class="section-title">
+      <h2>🎼 <span>Our Programs</span></h2>
+    </div>
+
+    <div class="grid">
+
+      <div class="card fade-in">
+        <div class="badge">Ongoing Program</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#1f6f54" stroke-width="2">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M8 14s1.5 2 4 2 4-2 4-2"/>
+          <path d="M9 9h.01M15 9h.01"/>
+        </svg>
+        <h3>CCEPI Music Fusion 🎹</h3>
+        <p>
+          A structured youth music training program offering hands-on instruction
+          in percussion, keyboards, strings, and fretted instruments.
+        </p>
+        <ul>
+          <li>Weekly practical sessions</li>
+          <li>Mentorship & peer learning</li>
+          <li>Teaching & performance pathways</li>
+        </ul>
+      </div>
+
+      <div class="card fade-in">
+        <div class="badge">Mobile Program</div>
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#1f6f54" stroke-width="2">
+          <path d="M12 20v-6"/>
+          <path d="M6 20V10"/>
+          <path d="M18 20V4"/>
+        </svg>
+        <h3>Harmony for Peace 🕊️</h3>
+        <p>
+          A one-day musical peace dialogue program combining drumming,
+          storytelling, and guided reflection to promote unity and healing.
+        </p>
+        <ul>
+          <li>Community music circles</li>
+          <li>Peace dialogue sessions</li>
+          <li>Adaptable, mobile delivery</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="impact" class="light">
+  <div class="container fade-in">
+    <div class="section-title">
+      <h2>📈 <span>Our Impact</span></h2>
+    </div>
+    <p>
+      For over a decade, CCEPI has supported youth-focused initiatives in
+      education, technology, peacebuilding, and cultural development.
+    </p>
+    <p>
+      Our work includes long-term skill-building programs, community workshops,
+      and partnerships that expand opportunity for underserved populations.
+    </p>
+  </div>
+</section>
+
+<section id="leadership">
+  <div class="container fade-in">
+    <div class="section-title">
+      <h2>👥 <span>Leadership & Board</span></h2>
+    </div>
+
+    <p><strong>Chief Executive Officer:</strong> Ntem Kenyor Komommo</p>
+
+    <ul>
+      <li>Eno Ubi Ofum</li>
+      <li>Mrs. Oma Cobham Nsa</li>
+      <li>Elder Otu Ina Ibor, PhD</li>
+      <li>Omini Oden</li>
+      <li>Hon. Bassey Ina Ibor</li>
+      <li>Etim Mbang Ina</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="light">
+  <div class="container fade-in">
+    <div class="section-title">
+      <h2>📬 <span>Contact Us</span></h2>
+    </div>
+    <p>Email: <strong>info@ccepi.org</strong></p>
+    <p>Location: Nigeria</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2008–2026 Centre for Community Empowerment and Peace Initiative (CCEPI)</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
